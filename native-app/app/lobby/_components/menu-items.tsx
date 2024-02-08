@@ -40,6 +40,7 @@ export default function MenuItems() {
 
   const handleLogout = () => signOut();
   const handleSwithAccount = () => signIn();
+
   return (
     <>
       <SheetHeader className="text-left border-b border-solid border-secondary p-5">
