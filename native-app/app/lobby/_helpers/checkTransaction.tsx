@@ -14,5 +14,7 @@ export default async function CheckTransaction() {
     },
   });
 
-  return <>{transaction ? <Hall /> : <About />}</>;
+  return {
+    transaction,
+  };
 }
