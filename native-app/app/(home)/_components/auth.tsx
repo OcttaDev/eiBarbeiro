@@ -2,9 +2,21 @@
 
 import { Button } from "@/app/_components/ui/button";
 import { Chrome } from "lucide-react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Auth() {
+  const { data } = useSession();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (data?.user) {
+      router.push("/lobby");
+    }
+  }, [data?.user]);
+
   const handleLogin = () => signIn();
   return (
     <div className="flex flex-col gap-3 items-center ">
