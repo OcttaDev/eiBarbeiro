@@ -1,12 +1,19 @@
+"use client";
+
 import { Button } from "@/app/_components/ui/button";
 import { Card, CardContent } from "@/app/_components/ui/card";
 import { Plan } from "@prisma/client";
 import { UserRound } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface FlyersProps {
   plan: Plan;
 }
 export default function Flyers({ plan }: FlyersProps) {
+  const router = useRouter();
+  const handlePaymentClick = () => {
+    router.push(`/payment/${plan.id}`);
+  };
   return (
     <>
       <Card className="bg-primary/50" key={plan.id}>
@@ -28,7 +35,7 @@ export default function Flyers({ plan }: FlyersProps) {
               }).format(Number(plan.price))}
             </h2>
           </div>
-          <Button>Assinar</Button>
+          <Button onClick={handlePaymentClick}>Assinar</Button>
         </CardContent>
       </Card>
     </>
