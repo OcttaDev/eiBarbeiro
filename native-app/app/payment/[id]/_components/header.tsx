@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/app/_components/ui/button";
-import { StepBack } from "lucide-react";
+import { ArrowLeftFromLine, StepBack } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className="w-full h-10 p-3">
       <Button variant="outline" size="icon" onClick={handleBackAbout}>
-        <StepBack />
+        <ArrowLeftFromLine />
       </Button>
     </div>
   );
