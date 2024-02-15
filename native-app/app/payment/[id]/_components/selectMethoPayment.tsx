@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/app/_components/ui/button";
 import { Card, CardContent } from "@/app/_components/ui/card";
 import { CreditCard, QrCode, Wallet2 } from "lucide-react";
 import { ChangeEvent, useState } from "react";
@@ -25,8 +26,8 @@ export default function SelectMethodPayment() {
             <QrCode size={26} />
           </span>
           <div>
-            <h1>Pix</h1>
-            <p>Aprovação imadiata</p>
+            <h1 className="text-lg font-semibold">Pix</h1>
+            <p className="text-xs">Aprovação imadiata</p>
           </div>
         </CardContent>
       </Card>
@@ -43,8 +44,8 @@ export default function SelectMethodPayment() {
             <CreditCard size={26} />
           </span>
           <div>
-            <h1>Pix</h1>
-            <p>Aprovação imadiata</p>
+            <h1 className="text-lg font-semibold">Cartão de credito</h1>
+            <p className="text-xs">Dividido em até 10x</p>
           </div>
         </CardContent>
       </Card>
@@ -61,11 +62,16 @@ export default function SelectMethodPayment() {
             <Wallet2 size={26} />
           </span>
           <div>
-            <h1>Pix</h1>
-            <p>Aprovação imadiata</p>
+            <h1 className="text-lg font-semibold">Debito</h1>
+            <p className="text-xs">Aprovação imadiata</p>
           </div>
         </CardContent>
       </Card>
+      {selectedMethodPayment !== "" ? (
+        <Button>Avançar</Button>
+      ) : (
+        <Button disabled>Selecione o formato de pagamento</Button>
+      )}
     </div>
   );
 }
