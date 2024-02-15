@@ -7,7 +7,7 @@ export default function Header() {
   const router = useRouter();
 
   const handleBackAbout = () => {
-    router.push("/");
+    router.push("/lobby");
   };
   return (
     <div className="w-full h-10 p-3">
