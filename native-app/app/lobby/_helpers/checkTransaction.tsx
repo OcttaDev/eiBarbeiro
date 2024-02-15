@@ -6,7 +6,7 @@ export default async function CheckTransaction() {
   const session = await getServerSession(authOptions);
   const transaction = await db.transaction.findFirst({
     where: {
-      userId: (session?.user as any).id,
+      userId: (session?.user as any)?.id,
     },
   });
 

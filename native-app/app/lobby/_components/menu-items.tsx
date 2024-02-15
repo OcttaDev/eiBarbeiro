@@ -29,14 +29,17 @@ import {
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function MenuItems() {
   const { data } = useSession();
   const router = useRouter();
 
-  if (!data?.user) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (!data?.user) {
+      router.push("/");
+    }
+  }, [data?.user]);
 
   const handleLogout = () => signOut();
   const handleSwithAccount = () => signIn();
