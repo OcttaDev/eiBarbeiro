@@ -4,5 +4,7 @@ import Hall from "../hall/page";
 
 export default async function Lobby() {
   const isPaidPlan = (await CheckTransaction()).transaction;
-  return <>{isPaidPlan ? <Hall /> : <About />}</>;
+  return (
+    <div className="w-full h-full p-5">{isPaidPlan ? <Hall /> : <About />}</div>
+  );
 }
