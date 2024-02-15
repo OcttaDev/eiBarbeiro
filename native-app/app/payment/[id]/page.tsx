@@ -1,4 +1,6 @@
+import { db } from "@/app/_lib/prisma";
 import Header from "./_components/header";
+import Plans from "./_components/plans";
 
 interface PaymentDetails {
   params: {
@@ -6,12 +8,20 @@ interface PaymentDetails {
   };
 }
 
-export default function Payment({ params }: PaymentDetails) {
+export default async function Payment({ params }: PaymentDetails) {
+  if (!params.id) {
+    return null;
+  }
+  const plan = await db.plan.findUnique({
+    where: {
+      id: params.id,
+    },
+  });
   return (
     <>
       <Header />
-      <div className="mt-20 px-3">
-        <h1>tela de pagamento</h1>
+      <div className="mt-20 px-3 w-full">
+        <Plans plan={plan!} />
       </div>
     </>
   );
