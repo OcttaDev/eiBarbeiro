@@ -20,7 +20,7 @@ export default async function Payment({ params }: PaymentDetails) {
   return (
     <>
       <Header />
-      <div className="mt-20 px-3 w-full">
+      <div className="mt-32 px-3 w-full">
         <Plans plan={plan!} />
       </div>
     </>
