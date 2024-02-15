@@ -1,8 +1,4 @@
 import { db } from "@/app/_lib/prisma";
-
-import Hall from "../hall/page";
-import About from "../about/page";
-
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
